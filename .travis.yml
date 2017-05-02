@@ -8,4 +8,6 @@ install:
         - make deps
 script:
         - make test
-
+after_success:
+        - make docker_build
+        - PASSWORD=${DOCKER_PASSWORD} make docker_push
