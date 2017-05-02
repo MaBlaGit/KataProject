@@ -8,13 +8,13 @@ run:
 	python simple_bottle_app.py
 
 docker_build:
-	docker build -t KataProject .
+	docker build -t Kata-Project .
 
 USERNAME=dockermariusz
-TAG=$(USERNAME)/KataProject
+TAG=$(USERNAME)/Kata-Project
 
 docker_push:
 	@docker login --username $(USERNAME) --password $(PASSWORD) ; \
-	docker tag KataProject $(TAG); \
+	docker tag Kata-Project $(TAG); \
 	docker push $(TAG); \
 	docker logout;
