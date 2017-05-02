@@ -3,7 +3,9 @@ python:
         - "2.7"
 env:
   global:
-        -  PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"      
+        -  PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp" 
+services:
+        - docker     
 install:
         - make deps
 script:
