@@ -15,6 +15,6 @@ TAG=$(USERNAME)/KataProject
 
 docker_push:
 	@docker login --username $(USERNAME) --password $(PASSWORD) ; \
-	docker tag hello-world-printer $(TAG); \
+	docker tag KataProject $(TAG); \
 	docker push $(TAG); \
 	docker logout;
