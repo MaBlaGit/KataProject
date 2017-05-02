@@ -11,7 +11,7 @@ docker_build:
 	docker build -t Kata-Project .
 
 USERNAME=dockermariusz
-TAG=$(USERNAME)/Kata-Project
+TAG= $(USERNAME)/Kata-Project
 
 docker_push:
 	@docker login --username $(USERNAME) --password $(PASSWORD) ; \
