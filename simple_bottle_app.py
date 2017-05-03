@@ -1,10 +1,11 @@
+#! /usr/bin/python
+
 import bottle
+from bottle import route, error
 import weather_api_script
 
-app = bottle.app()
 
-
-@bottle.route('/index', method='GET')
+@route('/index', method='GET')
 def index():
     city = bottle.request.GET.get("my_city")
     if city is None or city == "":
@@ -12,7 +13,7 @@ def index():
     return bottle.redirect('/index/%s' % city)
 
 
-@bottle.route('/index/<city_name>')
+@route('/index/<city_name>')
 def weather_page(city_name):
     weather_api = weather_api_script.get_current_weather(city_name)
     if isinstance(weather_api, list):
@@ -40,19 +41,19 @@ def weather_page(city_name):
         )
 
 
-@bottle.route('/index/selected')
+@route('/index/selected')
 def selected_city():
-    city_name="Warsaw"
+    city_name = "Warsaw"
     city_id = bottle.request.GET.get("id")
     x = weather_api_script.get_current_weather_by_id(city_name, city_id)
     # print x[0]
     return bottle.template('selected_city_from_cities', city_data=x)
 
 
-@bottle.error(404)
-@bottle.error(500)
+@error(404)
+@error(500)
 def error500(error):
     return bottle.template('error_page')
 
 if __name__ == '__main__':
-    bottle.run(app=app, host='localhost', port=8080)
+    bottle.run(host='localhost', port=8080)
