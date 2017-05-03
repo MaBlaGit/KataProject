@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM python:2.7
 
 WORKDIR /tmp
 ADD requirements.txt /tmp/requirements.txt
