@@ -1,11 +1,9 @@
-#! /usr/bin/python
-
 import pyowm
 
 # api key for openweathermap
-owm = pyowm.OWM('###########################################')
+owm = pyowm.OWM('####')
 # api key google maps
-google_map_api_key = '######################################'
+google_map_api_key = '####'
 
 # resolving city name - input field can take
 # different city names e.g: one word name,
