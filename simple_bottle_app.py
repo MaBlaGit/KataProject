@@ -55,4 +55,4 @@ def error500(error):
     return bottle.template('error_page')
 
 if __name__ == '__main__':
-    bottle.run(app=app, host='localhost', port=8080, debug=True)
+    bottle.run(app=app, host='localhost', port=8080)
