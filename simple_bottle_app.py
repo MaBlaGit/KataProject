@@ -3,6 +3,7 @@ import weather_api_script
 
 app = bottle.app()
 
+
 @bottle.route('/index', method='GET')
 def index():
     city = bottle.request.GET.get("my_city")
