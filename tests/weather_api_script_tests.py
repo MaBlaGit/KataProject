@@ -5,7 +5,7 @@ import weather_api_script
 class WeatherApiTests(unittest.TestCase):
 
     def test_resolve_city_name_single_name(self):
-        city_list = ["wROcLaw", "WROCLAW", "wroclaw", "WrOcLAW", "wroCLAW", "WROcla"]
+        city_list = ["wROcLaw", "WROCLAW", "wroclaw", "WrOcLAW", "wroCLAW", "WROclaw"]
         for city in city_list:
             city_name_function = weather_api_script.resolve_city_name(city)
             self.assertEqual("Wroclaw", city_name_function)
