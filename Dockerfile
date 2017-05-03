@@ -13,3 +13,4 @@ ADD simple_bottle_app.py /usr/src/KataProject/
 ADD weather_api_script.py /usr/src/KataProject/
 
 EXPOSE 8080
+ENTRYPOINT ["/usr/bin/python", "/usr/src/KataProject/simple_bottle_app.py"]
