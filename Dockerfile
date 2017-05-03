@@ -12,3 +12,4 @@ ADD views/ /usr/src/KataProject/views/
 ADD simple_bottle_app.py /usr/src/KataProject/
 ADD weather_api_script.py /usr/src/KataProject/
 
+EXPOSE 8080
