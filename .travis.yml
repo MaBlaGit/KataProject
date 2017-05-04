@@ -13,3 +13,9 @@ script:
 after_success:
         - make docker_build
         - PASSWORD=${DOCKER_PASSWORD} make docker_push
+
+deploy:
+        provider: heroku
+        app: simple_bottle_app
+        api_key: ${HEROKU_API_KEY}
+
