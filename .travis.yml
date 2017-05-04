@@ -16,4 +16,5 @@ after_success:
 
 deploy:
         provider: heroku
+        app: KataProject
         api_key: ${HEROKU_API_KEY}
