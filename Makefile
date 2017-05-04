@@ -10,14 +10,8 @@ run:
 docker_build:
 	docker build -t kata-project-new .
 
-docker_run: docker_build
-	docker run \
-	    --name kata-project-new \
-	    -p 8080:8080 \
-	    -d kata-project-new
-
 USERNAME=dockermariusz
-TAG=$(USERNAME)/kata-project
+TAG=$(USERNAME)/kata-project-new
 
 docker_push:
 	@docker login --username $(USERNAME) --password $(PASSWORD) ; \
