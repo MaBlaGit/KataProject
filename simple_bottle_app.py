@@ -4,6 +4,7 @@ import bottle
 from bottle import route, error
 import weather_api_script
 
+app = bottle.app()
 
 @route('/index', method='GET')
 def index():
@@ -56,4 +57,4 @@ def error500(error):
     return bottle.template('error_page')
 
 if __name__ == '__main__':
-    bottle.run(host='localhost', port=8080, debug=True)
+    bottle.run(app=app, host='localhost', port=8080, debug=True)
