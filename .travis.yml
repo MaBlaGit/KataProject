@@ -16,5 +16,4 @@ after_success:
 
 deploy:
         provider: heroku
-        app: simple_bottle_app
         api_key: ${HEROKU_API_KEY}
