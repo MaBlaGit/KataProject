@@ -1,6 +1,6 @@
 FROM ubuntu
 
-WORKDIR /tmp
+WORKDIR /usr/src/KataProject/
 
 RUN mkdir -p /usr/src/KataProject/
 ADD cities/ /usr/src/KataProject/cities/
