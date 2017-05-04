@@ -16,5 +16,5 @@ after_success:
 
 deploy:
         provider: heroku
-        app: KataProject
+        app: simple_bottle_app
         api_key: ${HEROKU_API_KEY}
