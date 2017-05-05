@@ -1,20 +1,20 @@
 language: python
 python:
-        - "2.7"
+- '2.7'
 env:
   global:
-        -  PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp" 
+  - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
 services:
-        - docker     
+- docker
 install:
-        - make deps
+- make deps
 script:
-        - make test
+- make test
 after_success:
-        - make docker_build
-        - PASSWORD=${DOCKER_PASSWORD} make docker_push
-
+- make docker_build
+- PASSWORD=${DOCKER_PASSWORD} make docker_push
 deploy:
-        provider: heroku
-        app: simple_bottle_app
-        api_key: ${HEROKU_API_KEY}
+  provider: heroku
+  app: simple_bottle_app
+  api_key:
+    secure: 05bC7e9myFnMPEojpOr866f+VqNOtDOStrtmRfPZOr6YbCkUY/qnR/xK77BGWx73nn23HuWL1aPjo/eQ784fDaLrr3s3Vxdof/QnwCaXvkppm2Cs1ygTiH9D59QJplMbieXuEbDa3Q51sUVUm9OkY0aWQO0yS6oAszAH1upkTpjyJ0Sql3DnfXmNRkpOCGzaJiRk2tYsJgXfri1UPvRSSG9owK3xPDOw7fm4+GATk4GvE4Vf3SL6lplL4mNs6yXCvPtI84y4cWzgcUtHwjuQhgJ5lpvMFaONV7W6CtXVNCDzAe6QPw/ZQyqPhI/CR5s6w6wVrYPulJ/k/u2keY6GjQqUYC21poYI97YjkhJB5m8M0qN1eAxGTtaWlFKMv7FqpO/QJAim6d87E1XlNbX6cln8sVWn/UpH3wsZLg4MoTFDpq4rvHy6lJdQQONbHidFytkeMcomtdftapGKWbc6TPdu8dJmyd0SM5OeDVlxkgJ2OIpJ/etMCITxSfePzrZ4gPihJVZIntB5aL29luM9Iq6w8BtDpYqmRNY6FztV8oCUnNln1PtEeQxUx6moybs1ZOISr0XIYZJ9k3GsZp7qtNsTbI0vnL47MpB78hAns7BV7ArVsIqwm+WaXQgrZ8ayaHTg6DuHEmfyu0Tq+9BxSBoEqGH8tWAVl/zNi0MVvGA=
