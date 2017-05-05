@@ -25,7 +25,7 @@
 	</center>
 	<br/>
 	<center>
-	<form form action="/index" method="GET">
+	<form form action="/" method="GET">
 	    <button style="height:40px; width:150px"; type="submit">Search Another Location</button>
 	</form>
 	</center>

@@ -6,15 +6,16 @@ import weather_api_script
 
 app = bottle.app()
 
-@route('/index', method='GET')
+
+@route('/', method='GET')
 def index():
     city = bottle.request.GET.get("my_city")
     if city is None or city == "":
         return bottle.template('index_page')
-    return bottle.redirect('/index/%s' % city)
+    return bottle.redirect('/%s' % city)
 
 
-@route('/index/<city_name>')
+@route('/<city_name>')
 def weather_page(city_name):
     weather_api = weather_api_script.get_current_weather(city_name)
     if isinstance(weather_api, list):
@@ -42,7 +43,7 @@ def weather_page(city_name):
         )
 
 
-@route('/index/selected')
+@route('/selected')
 def selected_city():
     city_name = "Warsaw"
     city_id = bottle.request.GET.get("id")

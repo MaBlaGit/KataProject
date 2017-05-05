@@ -22,5 +22,5 @@ ADD requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 EXPOSE 8080
-ENTRYPOINT ["/usr/bin/python", "/usr/src/KataProject/simple_bottle_app.py"]
+CMD ["gunicorn","-b","0.0.0.0:8080", "simple_bottle_app:app"]
 

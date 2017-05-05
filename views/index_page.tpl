@@ -5,7 +5,7 @@
 </head>
 <body>
     <center>
-    <form action="/index" method="GET">
+    <form action="/" method="GET">
     <p>Forecast for the current city</p>
     <input type="text" name="my_city" size="40" value=""></input>
     <br/>
