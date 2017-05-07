@@ -1,9 +1,7 @@
-#! /usr/bin/python
 
 import bottle
 from bottle import route, error
 import weather_api_script
-
 app = bottle.app()
 
 
@@ -23,9 +21,9 @@ def weather_page(city_name):
         for city in weather_api:
             my_weather_many_cities.append(city[0])
         return bottle.template(
-                            'current_weather_more_cities',
+                             'current_weather_more_cities',
                              many_cities=my_weather_many_cities,
-        )
+                             )
     else:
         my_weather = [weather_api[0], weather_api[1], weather_api[2], weather_api[3], weather_api[4], weather_api[5],
                       weather_api[6],  weather_api[7],  weather_api[8]]
@@ -40,16 +38,25 @@ def weather_page(city_name):
                             weather_wind=my_weather[6],
                             humidity=my_weather[7],
                             country_iso_code=weather_api[8],
-        )
+                            )
 
 
 @route('/selected')
 def selected_city():
-    city_name = "Warsaw"
     city_id = bottle.request.GET.get("id")
-    x = weather_api_script.get_current_weather_by_id(city_name, city_id)
-    # print x[0]
-    return bottle.template('selected_city_from_cities', city_data=x)
+    city_name_city_id = weather_api_script.get_city_name_and_id_from_many_cities(city_id)
+    testing_variable = weather_api_script.get_current_weather_by_id(city_name_city_id[0], city_name_city_id[1])
+    return bottle.template('current_weather',
+                           google_map_api_key=testing_variable[0][1],
+                           city_name=testing_variable[0][2],
+                           latitude=testing_variable[0][3],
+                           longitude=testing_variable[0][4],
+                           weather_max_temp=testing_variable[0][5],
+                           weather_min_temp=testing_variable[0][6],
+                           weather_wind=testing_variable[0][7],
+                           humidity=testing_variable[0][8],
+                           country_iso_code=testing_variable[0][9],
+                           )
 
 
 @error(404)

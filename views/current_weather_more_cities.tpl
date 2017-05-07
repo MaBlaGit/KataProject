@@ -20,7 +20,7 @@
 	</center>
 	<center>
 	<form action="/selected">
-	    <button style="height:40px; width:150px"; type="submit"; name="id"; value="{{city[0]}}">Select THIS Location</button>
+	    <button style="height:40px; width:150px"; type="submit"; name="id"; value="{{city[0:3]}}">Select THIS Location</button>
 	</form>
     </center>
     %end

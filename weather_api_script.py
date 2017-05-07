@@ -1,3 +1,4 @@
+
 import pyowm
 
 # api key for openweathermap
@@ -114,9 +115,13 @@ def get_current_weather(city_name):
         ids_from_many_cities = get_city_by_id(city_name)
         list_of_cities = list()
         for city in range(len(searched_city)):
+            city_int = searched_city[city][0]
+            city_int = city_int.strip()
+            # code changed from city_int = int(city_int)
+            city_int = int(city_int)
             proxy_list_of_cities = list()
             id_of_city = ids_from_many_cities[city][0]
-            city_data = owm.weather_at_id(int(searched_city[city][0]))
+            city_data = owm.weather_at_id(city_int)
             current_weather = city_data.get_weather()
             # print current_weather
             temp = current_weather.get_temperature('celsius')
@@ -131,7 +136,10 @@ def get_current_weather(city_name):
         return list_of_cities
     # owm api for 1 city starts here
     else:
-        city = owm.weather_at_id(int(searched_city[0]))
+        city_int = searched_city[0]
+        city_int = city_int.strip()
+        city_int = int(city_int)
+        city = owm.weather_at_id(city_int)
         country_iso_code = searched_city[1]
         latitude = searched_city[-1]
         longitude = searched_city[-2]
@@ -152,10 +160,32 @@ def get_current_weather(city_name):
         )
 
 
+# select from many cities one city
 def get_current_weather_by_id(city_name, city_id):
     current_weather = get_current_weather(city_name)
     for cities in current_weather:
         if city_id in cities[0]:
-            return cities[0]
+            return cities
 
 
+def get_city_name_and_id_from_many_cities(city_id):
+    city_name_correct_order = ""
+    correct_city_name = ""
+    number_string_get = len(city_id) - 2
+    # print number_string_get
+    for element in city_id:
+        correct_city_name += city_id[number_string_get]
+        number_string_get -= 1
+        if city_id[number_string_get] == ",":
+            break
+    correct_city_name = correct_city_name.strip()
+    correct_city_name = correct_city_name[1:-1]
+    correct_order_number_string_get = len(correct_city_name) - 1
+    for element in correct_city_name:
+        city_name_correct_order += correct_city_name[correct_order_number_string_get]
+        correct_order_number_string_get -= 1
+    city_name = city_name_correct_order
+    city_id_string = city_id[1:-1]
+    city_id_string = city_id_string.split()
+    city_number_id = city_id_string[0][1:-2]
+    return [city_name, city_number_id]

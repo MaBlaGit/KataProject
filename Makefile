@@ -1,11 +1,11 @@
 .PHONY: test
 
 deps:
-	pip install -r requirements.txt; 
+	pip install -Ur requirements.txt;
 test:
 	python tests/weather_api_script_tests.py
 run:
-	python simple_bottle_app.py
+	gunicorn simple_bottle_app:app
 
 docker_build:
 	docker build -t kata-project-new .
