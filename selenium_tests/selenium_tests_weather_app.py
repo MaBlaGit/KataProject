@@ -6,6 +6,7 @@ import unittest
 from ddt import ddt, data, unpack
 from castro import Castro
 import HTMLTestRunner
+import os
 from test_data.get_data_from_csv import get_data
 
 
@@ -14,6 +15,7 @@ class TestOneCityResult(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+	# Chrome(executable_path='paste here path to chromedriver')
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
         cls.driver.get('http://localhost:8000/')
@@ -53,14 +55,14 @@ class DDTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+	screencast_path = os.getcwd()
         cls.castro_recorder = Castro(
                                     host='mariusz-ThinkPad-T510',
                                     display=1,
                                     port=5901,
                                     clipping='1920x1080+0+0',
-                                    framerate=12.0,
-                                    filename='/home/mariusz/PycharmProjects/WSBKata/BottleApp/selenium_tests/'
-                                             'selenium_test_raports/video_screencast/test_selenium.flv'
+                                    framerate=30.0,
+                                    filename=screencast_path + '/selenium_test_raports/video_screencast/test_selenium.swf'
 
         )
         cls.castro_recorder.start()
@@ -111,5 +113,6 @@ class DDTests(unittest.TestCase):
     def tearDownClass(cls):
         cls.castro_recorder.stop()
         cls.driver.quit()
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

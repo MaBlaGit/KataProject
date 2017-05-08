@@ -6,8 +6,8 @@
 <body>
     <center>
     <form action="/" method="GET">
-    <p>Forecast for the current city</p>
-    <input type="text" name="my_city" size="40" value=""></input>
+    <p>Weather forecast for city</p>
+    <input type="text" name="my_city" size="40" value="", placeholder="Type here name of the city..."></input>
     <br/>
     <input type="submit" value="Submit">
     </form>

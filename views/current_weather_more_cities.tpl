@@ -4,7 +4,7 @@
     <title>Weather Forecast</title>
 </head>
 <body>
-    <center><h1><strong>More than one city with the same name were detected</strong></h1></center>
+    <center><h1><strong>More than one city or weather measurement spots in the same city were detected</strong></h1></center>
     <center><h2><strong>Please chose one from the list below</strong></h2></center>
     <br/>
     %for city in many_cities:
@@ -20,7 +20,7 @@
 	</center>
 	<center>
 	<form action="/selected">
-	    <button style="height:40px; width:150px"; type="submit"; name="id"; value="{{city[0:3]}}">Select THIS Location</button>
+	    <button style="height:40px; width:150px"; type="submit"; name="id"; value="{{(city[0], city[2])}}">Select THIS Location</button>
 	</form>
     </center>
     %end
