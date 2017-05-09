@@ -4,8 +4,6 @@ python:
 env:
   global:
         - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
-        - GOOGLEAPIKEY=${GOOGLE_API_KEY}
-        - OWMAPIKEY=${OWM_API_KEY}
 services:
         - docker
 install:
