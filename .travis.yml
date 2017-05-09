@@ -13,8 +13,8 @@ script:
 after_success:
 - make docker_build
 - PASSWORD=${DOCKER_PASSWORD} make docker_push
-- GOOGLEAPIKEY=${GOOGLE_API_KEY} make docker_push
-- OWMAPIKEY=${OWM_API_KEY} make docker_push
+- GOOGLEAPIKEY=${GOOGLE_API_KEY}
+- OWMAPIKEY=${OWM_API_KEY}
 deploy:
   provider: heroku
   app: simplebottleapp
