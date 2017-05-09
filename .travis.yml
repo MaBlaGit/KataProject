@@ -1,19 +1,22 @@
 sudo: required
 language: python
 python:
-        - '2.7'
+- '2.7'
 env:
   global:
-        - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
+  - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
+  matrix:
+  - secure: Bm2W3SkSQmiSpNj9aGrhVAJG1iu7vZ9/+oHIM1TL6hVZ3/19oVImstdwY8jzK6AIEU8E7G7y9Emf1Cvos+3Z8kXituT+Pm/EWkoEcKhGj7dUjy2r8eozed1wdPfOnTOE5DPYG341K/wOIxb8nfCMziMyAXkpJtHVtK/8SvYxdrcA6lnQDgC3eeM+wpzfCNqpJ7TFBqWPQwPzWlIv1wDeGFFFbEE9ulRXSb0qo4YzorffrSJkEwMrjhoboBUXpXofBiVxH8MUVFzRE322OE1mIwKvdff4XPS77DvCCOQZqrp2MMuSPZATF7Kcvaxf8uzbwgHc9z4wVxhW+kpUi39PQyeuW+5vQhoMIZytU/fl5zYY2kSZADfx4Zso4f271fv6+ucakBmIwanOBftIrfcCIskBoVag/3/R8uGbTdSDkCAVxzoQZyyhiFSWMQ2vRJbclxD9gdIUVZJFzBWDwRIvPHudP3UggWGw/iAf/ZVLt7QxhPmnYSTuQ9czjq87DCAKeCpoP2RT0TBhHa222TFaKLNaChyJ88XxDL57G+sOvziqBZVb+w+Fq80HceBhDDVdq0vXi07W0cWHhOq93sG2oS89AS2w+dV2MPg4OeGIkZF2uBiL1BmpfFVUUggG653+ancelYX77yJmk5SzhIx/gQarQSBDZRgt7RMCbnfxeGc=
+  - secure: ysfHG/qmpRsp7cJX35Dn3uRLsnzw4S++9we3cgY3hwkRk1w//u9kr7rxjZob0euu+4YlHb6lEjiWlmdhh5IS80DwZ6MeIvj0aE341tPvlBKa0elU8cjYlwfTAOvrKh/5Wq+AAL1lEK9HVb/MGI9ZSV7EVXDgNlZoXHMSkE5ROXqYW70j6aVSjHUHLXAAmZSZ2L6d4uSazw7zF2JItK02ajiuNC70J8pZGAb6tK6JZiYT0S6J6a2axiNdBWD53ICe/XdnDf4ZCPwgkj1v0mo/50zvGil4VYGbQBIP4i6UTVfeR0S4fYWPU6YBcpYPmFTsJx80FNrfwbwlsxi7rScyjtYfY8JrMJ4+aG1xrpkxQkou4HKVJyPFui7+8dRQH6NYI0JvylIdu+v78rmb9CbvfA3WdPEL/e8LqQzOEMPzLIfLBSDxuiDwif1u3yom4fS1kE/daqCE9wUTKT/ClbsGhnFi+1riwet9As9VJTHMveJvIU9X7yoJK40Yu4P+ywSorewpboD9+Mh9HugU3X9cdx61pS2wQZQlG1YWci8hDY12yIw3mY7m1Q5ORGYnaOAaM3nPzp4zHCKyUf2Rd1b/KQv+J3MKt1QiUJ31jTZdKO2RnucDlClwLntPmrrMxUrldDNPWTd24ZWc8wOj4M/m3v3KsEAZlNWxLvyUPlB39Ew=
 services:
-        - docker
+- docker
 install:
-        - make deps
+- make deps
 script:
-        - make test
+- make test
 after_success:
-        - make docker_build
-        - PASSWORD=${DOCKER_PASSWORD} make docker_push
+- make docker_build
+- PASSWORD=${DOCKER_PASSWORD} make docker_push
 deploy:
   provider: heroku
   app: simplebottleapp
