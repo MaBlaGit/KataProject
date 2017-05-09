@@ -2,11 +2,12 @@ import os
 import pyowm
 
 # api key for openweathermap
-google_api_key = os.environ.get('GOOGLE_API_KEY')
-owm = pyowm.OWM(google_api_key)
-# api key google maps
 owm_api_key = os.environ.get('OWM_API_KEY')
-google_map_api_key = owm_api_key
+owm = pyowm.OWM(owm_api_key)
+
+# api key google maps
+google_api_key = os.environ.get('GOOGLE_API_KEY')
+google_map_api_key = google_api_key
 
 # resolving city name - input field can take
 # different city names e.g: one word name,
