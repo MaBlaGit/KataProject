@@ -1,20 +1,20 @@
 language: python
 python:
-- '2.7'
+        - '2.7'
 env:
   global:
-  - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
+        - PYTHONPATH="$PYTHONPATH:$HOME/PycharmProjects/WSBKata/BottleApp"
+        - GOOGLEAPIKEY=${GOOGLE_API_KEY}
+        - OWMAPIKEY=${OWM_API_KEY}
 services:
-- docker
+        - docker
 install:
-- make deps
+        - make deps
 script:
-- make test
+        - make test
 after_success:
-- make docker_build
-- PASSWORD=${DOCKER_PASSWORD} make docker_push
-- GOOGLEAPIKEY=${GOOGLE_API_KEY}
-- OWMAPIKEY=${OWM_API_KEY}
+        - make docker_build
+        - PASSWORD=${DOCKER_PASSWORD} make docker_push
 deploy:
   provider: heroku
   app: simplebottleapp
