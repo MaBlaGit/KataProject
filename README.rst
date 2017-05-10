@@ -89,21 +89,21 @@ To run app as docker container (Docker have to be installed on the local machine
 3. To run Selenium tests:
    Test app on localhost:
 
-   - **KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
+- **KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
 ::
-   # api key for openweathermap
+    # api key for openweathermap
             
-   # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
+    # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
 
-     owm = pyowm.OWM(owm_api_key) paste it here!!!
+      owm = pyowm.OWM(owm_api_key) paste it here!!!
             
-   # api key google maps
+    # api key google maps
             
-   # google_api_key = os.environ.get('GOOGLE_API_KEY') / hash this line
-     google_map_api_key = google_api_key paste it here!!!
+    # google_api_key = os.environ.get('GOOGLE_API_KEY') / hash this line
+      google_map_api_key = google_api_key paste it here!!!
              
 
-   - in the KataProject folder open shell(virtualenv must be activated)
+    - in the KataProject folder open shell(virtualenv must be activated)
 ::
     - $ make run
     - open another shell to run **x11vnc server**
