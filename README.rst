@@ -89,21 +89,21 @@ To run app as docker container (Docker have to be installed on the local machine
 3. To run Selenium tests:
    Test app on localhost:
 
-- **KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
+**KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
 ::
-   - # api key for openweathermap
-   - # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
-   - owm = pyowm.OWM(owm_api_key) paste it here!!!   
-   - # api key google maps    
-   - # google_api_key = os.environ.get('GOOGLE_API_KEY') / hash this line
-   - google_map_api_key = google_api_key paste it here!!!
-   - in the KataProject folder open shell(virtualenv must be activated)
-   - $ make run
-   - open another shell to run **x11vnc server**
-   - $ x11vnc -display :0
-   - Check in logs if **display** and **PORT** are the same as we defined in **selenium_tests/selenium_test_weather.py** (see step 8 of preparing environment). If not,  **stop server**, **change code** and run it again!
-   - open another terminal, go to KataProject/selenium_tests, activate virtualenv:
-   - $ python smoke_test.py
+   # api key for openweathermap
+   # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
+   owm = pyowm.OWM(owm_api_key) paste it here!!!   
+   # api key google maps    
+   # google_api_key = os.environ.get('GOOGLE_API_KEY') / hash this line
+   google_map_api_key = google_api_key paste it here!!!
+   in the KataProject folder open shell(virtualenv must be activated)
+   $ make run
+   open another shell to run **x11vnc server**
+   $ x11vnc -display :0
+   Check in logs if **display** and **PORT** are the same as we defined in **selenium_tests/selenium_test_weather.py** (see step 8 of preparing environment). If not,  **stop server**, **change code** and run it again!
+   open another terminal, go to KataProject/selenium_tests, activate virtualenv:
+   $ python smoke_test.py
 
 After test check html_raport folder (**html_test_raport**) and **test_screencast** folder (screencast video from the test).
 
