@@ -18,7 +18,7 @@ class TestOneCityResult(unittest.TestCase):
 	# Chrome(executable_path='paste here path to chromedriver')
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
-        cls.driver.get('http://localhost:8000/')
+        cls.driver.get('https://simplebottleapp.herokuapp.com/')
 
     def test_one_city_result_search(self):
 
@@ -68,7 +68,7 @@ class DDTests(unittest.TestCase):
         cls.castro_recorder.start()
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
-        cls.driver.get('http://localhost:8000/')
+        cls.driver.get('https://simplebottleapp.herokuapp.com/')
 
     @data(*get_data('test_data/cities_one_result_data.csv'))
     @unpack
