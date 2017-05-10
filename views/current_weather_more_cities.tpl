@@ -4,7 +4,7 @@
     <title>Weather Forecast</title>
 </head>
 <body>
-    <center><h1><strong>More than one city or weather measurement spots in the same city were detected</strong></h1></center>
+    <center><h1><strong>More than one city or weather measurement spots were detected</strong></h1></center>
     <center><h2><strong>Please choose one from the list below</strong></h2></center>
     <br/>
     %for city in many_cities:
