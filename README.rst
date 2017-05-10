@@ -33,7 +33,8 @@ To run app as docker container (Docker have to be installed on the local machine
 ::
  - Pull docker image from https://hub.docker.com/r/dockermariusz/kata-project-new/
 
- - $ docker run -e GOOGLE_API_KEY=your_google_api_key -e OWM_API_KEY=your_owm_api_key --name           weather-app -p 8000:8080 dockermariusz/kata-project-new:latest
+ - $ docker run -e GOOGLE_API_KEY=your_google_api_key -e OWM_API_KEY=your_owm_api_key --name 
+     weather-app -p 8000:8080 dockermariusz/kata-project-new:latest
 
  - Type in browser: http://localhost:8080
           
@@ -42,25 +43,25 @@ To run app as docker container (Docker have to be installed on the local machine
   
 1. Clone/Download project from GitHub: https://github.com/MaBlaGit/KataProject
 2. Install pip, virtualenv and virtualenvwrapper:
- ::
+::
     - # yum install  python-pip
     - $ pip install virtualenv
     - $ pip install virtualenvwrapper
 3. Run virtualenvwrapper and create hermetic virtualenv for the project:
- ::
+::
     - $ source /usr/bin/virtualenvwrapper.sh
     - $ mkvirtualenv <name-of-your-virtualenv>
     - $ workon <name-of-your-virtualenv> 	
 	
 4. Go to KataProject folder and add project to the virtualenv PYTHONPATH:
- ::
+::
     - $ add2virtualenv . (resolves problems with module imports)
 5. Install required modules:
- ::
+::
     - $ make deps
     - # yum install tkinter (required for recording screencast)
 6. Install **x11vnc Server** (required for recording screencast)
- ::
+::
 	- # yum install x11vnc
 	
 7. Install Chrome browser
@@ -69,7 +70,7 @@ To run app as docker container (Docker have to be installed on the local machine
     - https://sites.google.com/a/chromium.org/chromedriver/
 
 9. In project folder (KataProject) go to **selenium_tests/selenium_test_weather.py**
- ::
+::
     - Add chromedriver to executable_path:
     - cls.driver = webdriver.Chrome(executable_path='path-to-chromedriver') **OR** add chromedriver path to Environment Variables.
     - set name of the host cls.castro_recorder = Castro(host=name_of_your_host, port=...)
@@ -77,19 +78,19 @@ To run app as docker container (Docker have to be installed on the local machine
 **RUNNING APPLICATION**
 
 1. To run and check how application works, in KataProject folder:
- ::
+::
     - $ gunicron simple_bottle_app:app
     - go to browser, type: http://127.0.0.1:8000
 
 2. To run unittest, in KataProject folder
- ::
+::
 	- $ make test
 
 3. To run Selenium tests:
     - Test app on localhost:
-      ::
-         - **KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
 
+         - **KataProject/weather_api_script.py** paste **openweathermap** api key and **google api key**:
+        ::
             # api key for openweathermap
             
             # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
@@ -103,11 +104,14 @@ To run app as docker container (Docker have to be installed on the local machine
              
 
          - in the KataProject folder open shell(virtualenv must be activated)
+        ::
          - $ make run
          - open another shell to run **x11vnc server**
+        ::
          - $ x11vnc -display :0
          - Check in logs if **display** and **PORT** are the same as we defined in **selenium_tests/selenium_test_weather.py** (see step 8 of preparing environment). If not,  **stop server**, **change code** and run it again!
          - open another terminal, go to KataProject/selenium_tests, activate virtualenv:
+        ::
          - $ python smoke_test.py
 
 After test check html_raport folder (**html_test_raport**) and **test_screencast** folder (screencast video from the test).
