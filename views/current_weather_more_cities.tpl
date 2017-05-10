@@ -4,8 +4,8 @@
     <title>Weather Forecast</title>
 </head>
 <body>
-    <center><h1><strong>More than one city or weather measurement spots were detected</strong></h1></center>
-    <center><h2><strong>Please choose one from the list below</strong></h2></center>
+    <center><h1><strong>More than one location was found</strong></h1></center>
+    <center><h2><strong>Please select one from the list below</strong></h2></center>
     <br/>
     %for city in many_cities:
         <center><p style="font-size:20px">{{city[2]}}, {{city[-1]}}</p></center>

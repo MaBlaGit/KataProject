@@ -3,7 +3,7 @@ import pyowm
 
 # api key for openweathermap
 owm_api_key = os.environ.get('OWM_API_KEY')
-owm = pyowm.OWM(owm_api_key)
+owm = pyowm.OWM(weather_api_key)
 
 # api key google maps
 google_api_key = os.environ.get('GOOGLE_API_KEY')
@@ -59,7 +59,7 @@ def city_name_one_word(city_name):
     return city_name
 
 
-# searching prepared resolved city name,
+# searching resolved city name,
 # return ID of the searched city
 def get_city_by_id(city_name):
     city_name = resolve_city_name(city_name)

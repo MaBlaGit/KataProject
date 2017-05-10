@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Something goes wrong....:/</title>
+    <title>Something went wrong</title>
 </head>
 <body>
     <center>
-    <h1>Unfortunately something goes wrong....:/</h1>
-    <h2>Try again by pressing the button below ;)</h2>
+    <h2>Unfortunately something went wrong :/</h2>
+    <h3>Please try again</h3>
     </center>
     <center>
 	<form form action="/" method="GET">

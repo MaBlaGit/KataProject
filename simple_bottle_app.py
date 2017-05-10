@@ -4,7 +4,7 @@ from bottle import route, error
 import weather_api_script
 app = bottle.app()
 
-
+# main page
 @route('/', method='GET')
 def index():
     city = bottle.request.GET.get("my_city")
@@ -12,7 +12,7 @@ def index():
         return bottle.template('index_page')
     return bottle.redirect('/%s' % city)
 
-
+# page with only one city
 @route('/<city_name>')
 def weather_page(city_name):
     weather_api = weather_api_script.get_current_weather(city_name)
@@ -40,7 +40,7 @@ def weather_page(city_name):
                             country_iso_code=weather_api[8],
                             )
 
-
+# page with more than one city
 @route('/selected')
 def selected_city():
     city_id = bottle.request.GET.get("id")
@@ -58,7 +58,7 @@ def selected_city():
                            country_iso_code=testing_variable[0][9],
                            )
 
-
+# page error
 @error(404)
 @error(500)
 def error500(error):

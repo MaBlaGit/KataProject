@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather For Your City</title>
+    <title>Weather Forecast</title>
 </head>
 <body>
     <center>
     	<form action="/" method="GET">
-    	   <p>Weather forecast for city</p>
-           <input type="text" name="my_city" size="40" value="", placeholder="Type here name of the city..."></input>
+    	   <h2>Weather Forecast</h2>
+           <input type="text" name="my_city" size="40" value="", placeholder="Type name of the city..."></input>
     	   <br/>
+	   <br/>
            <input type="submit" value="Submit">
         </form>
     </center>	

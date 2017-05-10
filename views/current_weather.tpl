@@ -5,8 +5,7 @@
 </head>
 <body>
     <center><h1><strong>Current Weather Forecast</strong></h1></center>
-    <center><h2><strong>Current weather in {{city_name}}, {{country_iso_code}}</strong></h2></center>
-    <br/>
+    <center><h2><strong>{{city_name}}, {{country_iso_code}}</strong></h2></center>
     <div style="font-size:20px">
         <center><p>Max temp: {{weather_max_temp}}&degC</p></center>
         <center><p>Min temp: {{weather_min_temp}}&degC</p></center>
