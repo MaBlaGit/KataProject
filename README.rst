@@ -21,7 +21,7 @@ More about used packages:
 
  - **HTMLTestRunner** - http://tungwaiyip.info/software/HTMLTestRunner.html
  - **Castro screencast** - https://github.com/hugs/castro
- 
+
 Weather App use OpenWeatherMap api https://openweathermap.org/api and google maps api: https://developers.google.com/maps/documentation/javascript/get-api-key
 
 You have to generate your own api keys and paste it into code / shell **docker run** command in order to start application from the script or Docker container.
@@ -32,34 +32,39 @@ You have to generate your own api keys and paste it into code / shell **docker r
 To run app as docker container (Docker have to be installed on the local machine):
 ::
  - Pull docker image from https://hub.docker.com/r/dockermariusz/kata-project-new/
-
  - $ docker run -e GOOGLE_API_KEY=your_google_api_key -e OWM_API_KEY=your_owm_api_key --name 
      weather-app -p 8000:8080 dockermariusz/kata-project-new:latest
-
  - open http://localhost:8080
-          
+
 **Preparing environment to run code - steps tested on Linux CentOS 7**
+
 1. Clone/Download project from GitHub: https://github.com/MaBlaGit/KataProject
+
 2. Install pip, virtualenv and virtualenvwrapper:
 ::
     - # yum install  python-pip
     - $ pip install virtualenv
     - $ pip install virtualenvwrapper
+
 3. Run virtualenvwrapper and create hermetic virtualenv for the project:
 ::
     - $ source /usr/bin/virtualenvwrapper.sh
     - $ mkvirtualenv <name-of-your-virtualenv>
-    - $ workon <name-of-your-virtualenv> 
+    - $ workon <name-of-your-virtualenv>
+
 4. Go to KataProject folder and add project to the virtualenv PYTHONPATH:
 ::
     - $ add2virtualenv . (resolves problems with module imports)
+
 5. Install required modules:
 ::
     - $ make deps
     - # yum install tkinter (required for recording screencast)
+
 6. Install **x11vnc Server** (required for recording screencast)
 ::
 	- # yum install x11vnc
+
 7. Install Chrome browser
 
 8. Download chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
@@ -88,11 +93,11 @@ To run app as docker container (Docker have to be installed on the local machine
 ::
    - # api key for openweathermap
    - # owm_api_key = os.environ.get('OWM_API_KEY') hash this line
-   - owm = pyowm.OWM(owm_api_key) paste it here!!!   
-   - # api key google maps    
+   - owm = pyowm.OWM(owm_api_key) paste it here!!!
+   - # api key google maps
    - # google_api_key = os.environ.get('GOOGLE_API_KEY') / hash this line
    - google_map_api_key = google_api_key paste it here!!!
-  
+
 In the KataProject folder open shell(virtualenv must be activated)
 ::
    - $ make run
@@ -102,7 +107,7 @@ Open another shell to run **x11vnc server**
 Check in logs if **display** and **PORT** are the same as we defined in **selenium_tests/selenium_test_weather.py** (see step 8 of preparing environment). If not,  **stop server**, **change code** and run it again!
 Open another terminal, go to KataProject/selenium_tests, activate virtualenv:
 ::
-   $-  python smoke_test.py
+   - $ python smoke_test.py
 
 After test check html_raport folder (**html_test_raport**) and **test_screencast** folder (screencast video from the test).
 
