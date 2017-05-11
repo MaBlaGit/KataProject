@@ -55,14 +55,16 @@ class DDTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-	screencast_path = os.getcwd()
+	current_dir = os.getcwd()
+        if not os.path.exists(current_dir + '/selenium_test_raports/video_screencast'):
+            os.makedirs('selenium_test_raports/video_screencast')
         cls.castro_recorder = Castro(
                                     host='mariusz-ThinkPad-T510',
                                     display=1,
                                     port=5901,
                                     clipping='1920x1080+0+0',
                                     framerate=30.0,
-                                    filename=screencast_path + '/selenium_test_raports/video_screencast/test_selenium.swf'
+                                    filename=current_dir + '/selenium_test_raports/video_screencast/test_selenium.swf'
 
         )
         cls.castro_recorder.start()
